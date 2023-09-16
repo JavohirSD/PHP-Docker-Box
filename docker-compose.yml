@@ -1,0 +1,67 @@
+version: '3.8'
+
+services:
+  php:
+    build:
+      context: './php'
+      dockerfile: Dockerfile
+    image: php82-image
+    container_name: php82-container
+    restart: always
+    volumes:
+      - './../:/var/www/html'
+      - './php/config:/usr/local/etc/php'
+    networks:
+      - app-network
+    depends_on:
+      - pgsql
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx-container
+    depends_on:
+      - php
+    ports:
+      - "80:80"
+    volumes:
+      - './../:/var/www/html'
+      - './nginx/config/conf.d:/etc/nginx/conf.d'
+    networks:
+      - app-network
+
+  pgsql:
+    image: postgres
+    restart: always
+    container_name: ${POSTGRES_DB}-container
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      PGDATA: /data/postgres
+    volumes:
+      - './db/postgres:/data/postgres'
+    ports:
+       - "5432:5432"
+    networks:
+      - app-network
+
+  adminer:
+    image: adminer:latest
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+  redis:
+    image: 'redis'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - "6379:6379"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
