@@ -1,6 +1,13 @@
 
 # PHP-Docker-Box
-Universal docker composition for PHP projects.
+Universal docker composition for PHP projects.</br></br>
+Project includes: </br>
+- Latest stable version of PHP with minimal extensions.
+- Latest version of NGINX with standard configurations.
+- PostgresSQL with default configurations
+- Adminer - simple and lightweight database manager.
+- Latest stable version of Redis with default configurations.
+
 
 # Installation
 1. Clone git repository into your project root. </br>
