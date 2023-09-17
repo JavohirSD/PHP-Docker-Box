@@ -3,18 +3,18 @@
 Universal docker composition for PHP projects.
 
 # Installation
-1. Clone git repository into your projeect.
+1. Clone git repository into your projeect. </br>
 ``` git clone https://github.com/JavohirSD/PHP-Docker-Box.git ```
-
-2. Change working directory.
+   </br></br>
+2. Change working directory.</br>
 ``` cd docker ```
-
-3. Edit ENV variables (optional but recommended)
-
-4. Run the Docker composition.
+   </br></br>
+3. Edit ENV variables (optional but recommended)</br>
+   </br>
+4. Run the Docker composition.</br>
 ``` docker-compose up -d ```
 ____
-Your project will run on http://localhost
+Your project will run on http://localhost </br>
 Database host will be ```pgsql``` for all services
 ___
  **Adminer configuration:**
