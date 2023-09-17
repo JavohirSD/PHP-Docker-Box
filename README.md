@@ -3,7 +3,7 @@
 Universal docker composition for PHP projects.
 
 # Installation
-1. Clone git repository into your projeect. </br>
+1. Clone git repository into your project root. </br>
 ``` git clone https://github.com/JavohirSD/PHP-Docker-Box.git ```
    </br></br>
 2. Change working directory.</br>
